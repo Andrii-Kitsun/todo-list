@@ -31,7 +31,6 @@ main {
   width: 1140px;
   max-width: 90%;
   margin: auto;
-  margin-bottom: 100px;
 }
 
 main .control {
@@ -57,9 +56,10 @@ main .control {
 }
 
 .filter-form input {
+  background: url("../img/Searchicon.png") 10px center no-repeat;
   height: 100%;
   width: 400px;
-  padding: 0 15px;
+  padding: 0 15px 0 40px;
   font-size: 20px;
   outline: none;
   border: 2px solid #dde0e3;
@@ -81,6 +81,10 @@ main .control {
 }
 
 .filter-form select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url("../img/Arrow.png") right center no-repeat;
   height: 100%;
   width: 150px;
   padding: 0 15px;
@@ -172,6 +176,7 @@ button:hover {
 
 .card-title {
   display: block;
+  overflow: auto;
   padding: 10px 15px;
   border-bottom: 1px solid #57616a;
 }
@@ -213,14 +218,15 @@ button:hover {
 }
 
 footer {
-  background-color: #6c757d;
-  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 60px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #6c757d;
+  margin-top: 10px;
 }
 
 .contacts {
