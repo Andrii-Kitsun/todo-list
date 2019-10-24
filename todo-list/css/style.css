@@ -1,0 +1,103 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  height: 50px;
+  background-color: #6c757d;
+  color: #ffffff;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header span {
+  font-size: 24px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-left: 15px;
+}
+
+main {
+  width: 1140px;
+  max-width: 90%;
+  margin: auto;
+}
+
+main .control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filter-form {
+  display: inline-block;
+  height: 100%;
+}
+
+.filter-form input {
+  height: 100%;
+  width: 400px;
+  padding: 0 15px;
+  font-size: 20px;
+  outline: none;
+  border: 2px solid #dde0e3;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+  margin-right: 30px;
+}
+
+.filter-form select {
+  height: 100%;
+  width: 150px;
+  padding: 0 15px;
+  font-size: 20px;
+  outline: none;
+  border: 2px solid #dde0e3;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+  margin-right: 15px;
+}
+
+.filter-form input:hover, .filter-form select:hover {
+  border-color: #c1c7cc;
+}
+
+.create-form {
+  height: 100%;
+  display: inline-block;
+}
+
+.create-form button {
+  height: 100%;
+  width: 150px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background-color: #dde0e3;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+
+.create-form button:hover {
+  cursor: pointer;
+  background-color: #c1c7cc;
+}
+/*# sourceMappingURL=style.css.map */

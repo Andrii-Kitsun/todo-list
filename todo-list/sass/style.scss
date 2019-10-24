@@ -1,0 +1,82 @@
+// Colors
+$Border: #dde0e3;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  height: 50px;
+  background-color: #6c757d;
+  color: #ffffff;
+  margin-bottom: 20px;
+  display: flex;
+  span {
+    font-size: 24px;
+    align-self: center;
+    padding-left: 15px;
+  }
+}
+
+main {
+  width: 1140px;
+  max-width: 90%;
+  margin: auto;
+  .control {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.filter-form {
+  display: inline-block;
+  height: 100%;
+  input {
+    height: 100%;
+    width: 400px;
+    padding: 0 15px;
+    font-size: 20px;
+    outline: none;
+    border: 2px solid $Border;
+    transition: all, 0.3s;
+    margin-right: 30px;
+  }
+  select {
+    height: 100%;
+    width: 150px;
+    padding: 0 15px;
+    font-size: 20px;
+    outline: none;
+    border: 2px solid $Border;
+    transition: all, 0.3s;
+    margin-right: 15px;
+  }
+  input:hover, select:hover {
+    border-color: darken($Border, 10%);
+  } 
+}
+.create-form {
+  height: 100%;
+  display: inline-block;
+  button {
+    height: 100%;
+    width: 150px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    background-color: $Border;
+    transition: all, 0.3s;
+    &:hover {
+      cursor: pointer;
+      background-color: darken($Border, 10%);
+    }
+  }
+}

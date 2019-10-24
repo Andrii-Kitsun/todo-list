@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TODO list</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <span>My TODO list</span>
+  </header>
+
+  <main>
+    <section class="control">
+      <form class="filter-form">
+        <input type="search" name="searchField" placeholder="Search by title">
+  
+        <select name="status">
+          <option value="Open">Open</option>
+          <option value="Done">Done</option>
+        </select>
+  
+        <select name="priority">
+          <option value="High">High</option>
+          <option value="Normal">Normal</option>
+          <option value="Low">Low</option>
+        </select>
+      </form>
+      
+      <form class="create-form">
+        <button type="button">Create</button>
+      </form>
+    </section>
+
+    <section class="list">
+      <div class="card">
+        <h2>Execute test task</h2>
+        <p>Cilkum intership</p>
+        <span>High</span>
+        <select name="card-setting">
+          <option value="Done">Done</option>
+          <option value="Edit">Edit</option>
+          <option value="Delete">Delete</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <h2>Learn JavaScript</h2>
+        <p></p>
+        <span>Low</span>
+        <select name="card-setting">
+            <option value="Done">Done</option>
+            <option value="Edit">Edit</option>
+            <option value="Delete">Delete</option>
+          </select>
+      </div>
+
+      <div class="card">
+        <h2>Apply intership</h2>
+        <p>Send email</p>
+        <span>Normal</span>
+        <select name="card-setting">
+            <option value="Done">Done</option>
+            <option value="Edit">Edit</option>
+            <option value="Delete">Delete</option>
+          </select>
+      </div>
+    </section>
+    <br>
+    <br>
+  </main>
+</body>
+</html>
