@@ -29,14 +29,16 @@ main {
   max-width: 90%;
   margin: auto;
   .control {
-    display: flex;
     height: 50px;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
+    @media (max-width: 614px) {
+      flex-wrap: wrap;
+    }
   }
 }
+
 .filter-form {
-  display: inline-block;
   height: 100%;
   input {
     height: 100%;
@@ -46,7 +48,13 @@ main {
     outline: none;
     border: 2px solid $Border;
     transition: all, 0.3s;
-    margin-right: 30px;
+    margin-right: 20px;
+    @media (max-width: 1023px) {
+      margin-bottom: 15px;
+    }
+    @media (max-width: 614px) {
+      width: 100%;
+    }
   }
   select {
     height: 100%;
@@ -57,26 +65,43 @@ main {
     border: 2px solid $Border;
     transition: all, 0.3s;
     margin-right: 15px;
+    @media (min-width: 615px) and (max-width: 1023px) {
+      width: 197px;
+      margin: 0;
+    }
+    @media (max-width: 614px) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
   }
   input:hover, select:hover {
     border-color: darken($Border, 10%);
-  } 
-}
-.create-form {
-  height: 100%;
-  display: inline-block;
-  button {
-    height: 100%;
-    width: 150px;
-    font-size: 18px;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    background-color: $Border;
-    transition: all, 0.3s;
-    &:hover {
-      cursor: pointer;
-      background-color: darken($Border, 10%);
-    }
   }
+  @media (min-width: 615px) and (max-width: 1023px) {
+    width: 400px;
+  }
+}
+
+button {
+  height: 100%;
+  width: 150px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background-color: $Border;
+  transition: all, 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: darken($Border, 10%);
+  }
+  @media (max-width: 614px) {
+    position: relative;
+    top: 136px;
+    width: 100%;
+  }
+}
+
+.list {
+  margin-top: 200px;
 }

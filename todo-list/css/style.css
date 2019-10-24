@@ -34,20 +34,23 @@ main {
 }
 
 main .control {
+  height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 50px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+}
+
+@media (max-width: 614px) {
+  main .control {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .filter-form {
-  display: inline-block;
   height: 100%;
 }
 
@@ -60,7 +63,19 @@ main .control {
   border: 2px solid #dde0e3;
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s;
-  margin-right: 30px;
+  margin-right: 20px;
+}
+
+@media (max-width: 1023px) {
+  .filter-form input {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 614px) {
+  .filter-form input {
+    width: 100%;
+  }
 }
 
 .filter-form select {
@@ -75,16 +90,31 @@ main .control {
   margin-right: 15px;
 }
 
+@media (min-width: 615px) and (max-width: 1023px) {
+  .filter-form select {
+    width: 197px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 614px) {
+  .filter-form select {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
 .filter-form input:hover, .filter-form select:hover {
   border-color: #c1c7cc;
 }
 
-.create-form {
-  height: 100%;
-  display: inline-block;
+@media (min-width: 615px) and (max-width: 1023px) {
+  .filter-form {
+    width: 400px;
+  }
 }
 
-.create-form button {
+button {
   height: 100%;
   width: 150px;
   font-size: 18px;
@@ -96,8 +126,20 @@ main .control {
   transition: all, 0.3s;
 }
 
-.create-form button:hover {
+button:hover {
   cursor: pointer;
   background-color: #c1c7cc;
+}
+
+@media (max-width: 614px) {
+  button {
+    position: relative;
+    top: 136px;
+    width: 100%;
+  }
+}
+
+.list {
+  margin-top: 200px;
 }
 /*# sourceMappingURL=style.css.map */
