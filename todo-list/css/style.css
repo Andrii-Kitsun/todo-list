@@ -213,21 +213,41 @@ button:hover {
 }
 
 footer {
+  background-color: #6c757d;
+  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #6c757d;
-  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-footer img {
-  max-width: 100%;
-}
-
-footer a {
+.contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #ffffff;
+  margin-left: 15px;
+}
+
+.contacts img {
+  margin: 0 5px;
+}
+
+.contacts a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
+  color: #ffffff;
   font-size: 15px;
-  padding-left: 15px;
+  margin-left: 15px;
 }
 /*# sourceMappingURL=style.css.map */

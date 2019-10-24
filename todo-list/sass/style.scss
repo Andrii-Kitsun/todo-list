@@ -136,14 +136,6 @@ button {
   }
 }
 
-// ::-webkit-scrollbar { width: 3px; height: 3px;}
-// ::-webkit-scrollbar-button {  background-color: #666; }
-// ::-webkit-scrollbar-track {  background-color: #999;}
-// ::-webkit-scrollbar-track-piece { background-color: #ffffff;}
-// ::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
-// ::-webkit-scrollbar-corner { background-color: #999;}
-// ::-webkit-resizer { background-color: #666;}
-
 .state {
   display: flex;
   padding: 8px 15px;
@@ -168,16 +160,26 @@ button {
 }
 
 footer {
-  display: flex;
   background-color: $Grey;
-	height: 50px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  margin-left: 15px;
   img {
-    max-width: 100%;
+    margin: 0 5px;
   }
   a {
-    color: #ffffff;
+    display: flex;
+    align-items: center;
     text-decoration: none;
+    color: #ffffff;
     font-size: 15px;
-    padding-left: 15px;
+    margin-left: 15px;
   }
 }
