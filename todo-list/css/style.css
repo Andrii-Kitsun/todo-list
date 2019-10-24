@@ -31,6 +31,7 @@ main {
   width: 1140px;
   max-width: 90%;
   margin: auto;
+  margin-bottom: 100px;
 }
 
 main .control {
@@ -144,18 +145,71 @@ button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid red;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 325px;
+  height: 300px;
+  border: 2px solid #57616a;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.card-title {
+  display: block;
+  padding: 10px 15px;
+  border-bottom: 1px solid #57616a;
+}
+
+.card-text {
+  overflow: auto;
+  padding: 5px 15px;
+}
+
+.state {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 15px;
+  border-top: 1px solid #57616a;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-.card {
-  display: inline-block;
-  width: 325px;
-  height: 300px;
-  border: 2px solid #57616a;
-  padding: 15px;
+.state-priority {
+  padding: 5px;
+  border: 1px dashed #57616a;
+  border-radius: 10px;
+}
+
+.state-setting {
+  width: 85px;
+  font-size: 18px;
+  outline: none;
+  border: 2px solid #dde0e3;
+  border-radius: 10px;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+
+.state-setting:hover {
+  border-color: #c1c7cc;
 }
 
 footer {
@@ -163,11 +217,11 @@ footer {
   display: -ms-flexbox;
   display: flex;
   background-color: #6c757d;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   height: 50px;
-  width: 100%;
+}
+
+footer img {
+  max-width: 100%;
 }
 
 footer a {
@@ -175,8 +229,5 @@ footer a {
   text-decoration: none;
   font-size: 15px;
   padding-left: 15px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
 }
 /*# sourceMappingURL=style.css.map */

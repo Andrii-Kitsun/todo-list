@@ -3,6 +3,10 @@ $Grey: #6c757d;
 $Border: #dde0e3;
 $Border-card: #57616a;
 
+@mixin border {
+  border: 1px solid red;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -30,6 +34,7 @@ main {
   width: 1140px;
   max-width: 90%;
   margin: auto;
+  margin-bottom: 100px;
   .control {
     height: 50px;
     display: flex;
@@ -107,32 +112,72 @@ button {
 
 .list {
   display: flex;
-  border: 1px solid red;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .card {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 325px;
   height: 300px;
   border: 2px solid $Border-card;
-  padding: 15px;
-  
+  font-size: 18px;
+  margin-bottom: 40px;
+  &-title {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid $Border-card;
+  }
+  &-text {
+    overflow: auto;
+    padding: 5px 15px;
+  }
+}
+
+// ::-webkit-scrollbar { width: 3px; height: 3px;}
+// ::-webkit-scrollbar-button {  background-color: #666; }
+// ::-webkit-scrollbar-track {  background-color: #999;}
+// ::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+// ::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+// ::-webkit-scrollbar-corner { background-color: #999;}
+// ::-webkit-resizer { background-color: #666;}
+
+.state {
+  display: flex;
+  padding: 8px 15px;
+  border-top: 1px solid $Border-card;
+  justify-content: space-between;
+  &-priority {
+    padding: 5px;
+    border: 1px dashed $Border-card;
+    border-radius: 10px;
+  }
+  &-setting {
+    width: 85px;
+    font-size: 18px;
+    outline: none;
+    border: 2px solid $Border;
+    border-radius: 10px;
+    transition: all, 0.3s;
+  }
+  &-setting:hover {
+    border-color: darken($Border, 10%);
+  }
 }
 
 footer {
   display: flex;
   background-color: $Grey;
-  position: absolute;
-	left: 0;
-	bottom: 0;
 	height: 50px;
-	width: 100%;
+  img {
+    max-width: 100%;
+  }
   a {
     color: #ffffff;
     text-decoration: none;
     font-size: 15px;
     padding-left: 15px;
-    align-self: center;
   }
 }
