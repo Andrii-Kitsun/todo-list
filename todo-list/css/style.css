@@ -41,6 +41,7 @@ main .control {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 @media (max-width: 614px) {
@@ -140,6 +141,42 @@ button:hover {
 }
 
 .list {
-  margin-top: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid red;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card {
+  display: inline-block;
+  width: 325px;
+  height: 300px;
+  border: 2px solid #57616a;
+  padding: 15px;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #6c757d;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  padding-left: 15px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 /*# sourceMappingURL=style.css.map */

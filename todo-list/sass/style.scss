@@ -1,5 +1,7 @@
 // Colors
+$Grey: #6c757d;
 $Border: #dde0e3;
+$Border-card: #57616a;
 
 * {
   box-sizing: border-box;
@@ -13,7 +15,7 @@ body {
 
 header {
   height: 50px;
-  background-color: #6c757d;
+  background-color: $Grey;
   color: #ffffff;
   margin-bottom: 20px;
   display: flex;
@@ -32,6 +34,7 @@ main {
     height: 50px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
     @media (max-width: 614px) {
       flex-wrap: wrap;
     }
@@ -103,5 +106,33 @@ button {
 }
 
 .list {
-  margin-top: 200px;
+  display: flex;
+  border: 1px solid red;
+  justify-content: space-between;
+}
+
+.card {
+  display: inline-block;
+  width: 325px;
+  height: 300px;
+  border: 2px solid $Border-card;
+  padding: 15px;
+  
+}
+
+footer {
+  display: flex;
+  background-color: $Grey;
+  position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 50px;
+	width: 100%;
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    padding-left: 15px;
+    align-self: center;
+  }
 }
