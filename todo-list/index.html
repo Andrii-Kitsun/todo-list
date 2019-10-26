@@ -31,7 +31,7 @@
         </select>
       </form>
       
-      <button type="button">Create</button>
+      <button class="button" type="button">Create</button>
     </section>
 
     <section class="list">
@@ -74,19 +74,6 @@
         </div>
       </div>
 
-      <!-- <div class="card">
-        <strong class="card-title">Execute test task</strong>
-        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
-        <div class="state">
-          <span class="state-priority">High</span>
-          <select class="state-setting">
-            <option value="Done">Done</option>
-            <option value="Edit">Edit</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>
-      </div>
-
       <div class="card">
         <strong class="card-title">Execute test task</strong>
         <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
@@ -111,7 +98,20 @@
             <option value="Delete">Delete</option>
           </select>
         </div>
-      </div> -->
+      </div>
+
+      <div class="card">
+        <strong class="card-title">Execute test task</strong>
+        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
+        <div class="state">
+          <span class="state-priority">High</span>
+          <select class="state-setting">
+            <option value="Done">Done</option>
+            <option value="Edit">Edit</option>
+            <option value="Delete">Delete</option>
+          </select>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -130,5 +130,26 @@
       </a>
     </div>
   </footer>
+
+  <section class="modal">
+      <form class="modal-form" action="#">
+        <span>Title:</span>
+        <input type="text" placeholder="Title">
+        <span>Description:</span>
+        <textarea placeholder="Description"></textarea>
+        <span>Priority:</span>
+        <select>
+          <option value="High">High</option>
+          <option value="low">Normal</option>
+          <option value="Low">Low</option>
+        </select>
+        <div class="button-wrap">
+          <button class="button" type="button">Cancel</button>
+          <button class="button" type="button">Save</button>
+        </div>
+      </form>
+    </section>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>

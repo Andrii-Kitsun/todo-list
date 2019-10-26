@@ -1,7 +1,8 @@
 // Colors
-$Grey: #6c757d;
+// $Grey: #202b36;
 $Border: #dde0e3;
 $Border-card: #57616a;
+$Modal: #353b40;
 
 @mixin border {
   border: 1px solid red;
@@ -22,7 +23,7 @@ body {
 
 header {
   height: 50px;
-  background-color: $Grey;
+  background-color: #202b36;
   color: #ffffff;
   margin-bottom: 20px;
   display: flex;
@@ -95,7 +96,7 @@ main {
   }
 }
 
-button {
+.button {
   height: 100%;
   width: 150px;
   font-size: 18px;
@@ -179,7 +180,7 @@ footer {
   display: flex;
   height: 60px;
   align-items: center;
-  background-color: $Grey;
+  background-color: #202b36;
   padding-left: 15px;
   margin-top: 10px;
   @media (max-width: 722px) {
@@ -202,5 +203,68 @@ footer {
     color: #ffffff;
     font-size: 15px;
     margin-left: 15px;
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 500ms ease-in;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+.modal-form {
+  width: 400px;
+  height: 450px;
+  padding: 30px;
+  border: 2px solid $Modal;
+  font-size: 22px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 5px $Border;
+  input, textarea {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 15px;
+    border: 2px solid $Border;
+    outline: none;
+    font-size: 17px;
+  }
+  textarea {
+    resize: none;
+    height: 136px;
+    font-family: 'Roboto', sans-serif;
+  }
+  select {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 0 15px;
+    margin: 5px 0 15px;
+    border: 2px solid $Border;
+    appearance: none;
+    outline: none;
+    font-size: 20px;
+    background: url('../img/Arrow.png') right center no-repeat;
+    transition: all, 0.3s;
+  }
+  .button-wrap {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+  button {
+    width: 40%;
+    height: 35px;
+  }
+  input:hover, textarea:hover, select:hover {
+    border-color: darken($Border, 10%);
   }
 }
