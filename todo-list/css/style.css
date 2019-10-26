@@ -4,9 +4,17 @@
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -114,9 +122,9 @@ main .control {
   border-color: #c1c7cc;
 }
 
-@media (min-width: 615px) and (max-width: 1023px) {
+@media (min-width: 614px) and (max-width: 1023px) {
   .filter-form {
-    width: 400px;
+    width: 100%;
   }
 }
 
@@ -140,7 +148,7 @@ button:hover {
 @media (max-width: 614px) {
   button {
     position: relative;
-    top: 136px;
+    top: 145px;
     width: 100%;
   }
 }
@@ -149,11 +157,32 @@ button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+}
+
+@media (max-width: 1083px) {
+  .list {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media (max-width: 1023px) {
+  .list {
+    margin-top: 115px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media (max-width: 614px) {
+  .list {
+    margin-top: 220px;
+  }
 }
 
 .card {
@@ -226,7 +255,17 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   background-color: #6c757d;
+  padding-left: 15px;
   margin-top: 10px;
+}
+
+@media (max-width: 722px) {
+  footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-left: 0;
+  }
 }
 
 .contacts {
@@ -237,7 +276,6 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   color: #ffffff;
-  margin-left: 15px;
 }
 
 .contacts img {

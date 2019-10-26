@@ -12,9 +12,12 @@ $Border-card: #57616a;
 }
 
 body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -87,8 +90,8 @@ main {
   input:hover, select:hover {
     border-color: darken($Border, 10%);
   }
-  @media (min-width: 615px) and (max-width: 1023px) {
-    width: 400px;
+  @media (min-width: 614px) and (max-width: 1023px) {
+    width: 100%;
   }
 }
 
@@ -107,15 +110,25 @@ button {
   }
   @media (max-width: 614px) {
     position: relative;
-    top: 136px;
+    top: 145px;
     width: 100%;
   }
 }
 
 .list {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
+  @media (max-width: 1083px) {
+    justify-content: space-around;
+  }
+  @media (max-width: 1023px) {
+    margin-top: 115px;
+    justify-content: space-around;
+  }
+  @media (max-width: 614px) {
+    margin-top: 220px;
+  }
 }
 
 .card {
@@ -167,14 +180,18 @@ footer {
   height: 60px;
   align-items: center;
   background-color: $Grey;
+  padding-left: 15px;
   margin-top: 10px;
+  @media (max-width: 722px) {
+    justify-content: center;
+    padding-left: 0;
+  }
 }
 
 .contacts {
   display: flex;
   align-items: center;
   color: #ffffff;
-  margin-left: 15px;
   img {
     margin: 0 5px;
   }
