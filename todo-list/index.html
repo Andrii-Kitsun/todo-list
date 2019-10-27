@@ -17,7 +17,7 @@
   <main>
     <section class="control">
       <form class="filter-form">
-        <input type="search" name="searchField" placeholder="Search by title">
+        <input type="search" placeholder="Search by title">
   
         <select name="status">
           <option value="Open">Open</option>
@@ -31,7 +31,7 @@
         </select>
       </form>
       
-      <button type="button">Create</button>
+      <button class="control-btn" type="button">Create</button>
     </section>
 
     <section class="list">
@@ -47,71 +47,6 @@
           </select>
         </div>
       </div>
-
-      <div class="card">
-        <strong class="card-title">Execute test task</strong>
-        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
-        <div class="state">
-          <span class="state-priority">High</span>
-          <select class="state-setting">
-            <option value="Done">Done</option>
-            <option value="Edit">Edit</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="card">
-        <strong class="card-title">Execute test task</strong>
-        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
-        <div class="state">
-          <span class="state-priority">High</span>
-          <select class="state-setting">
-            <option value="Done">Done</option>
-            <option value="Edit">Edit</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- <div class="card">
-        <strong class="card-title">Execute test task</strong>
-        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
-        <div class="state">
-          <span class="state-priority">High</span>
-          <select class="state-setting">
-            <option value="Done">Done</option>
-            <option value="Edit">Edit</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="card">
-        <strong class="card-title">Execute test task</strong>
-        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
-        <div class="state">
-          <span class="state-priority">High</span>
-          <select class="state-setting">
-            <option value="Done">Done</option>
-            <option value="Edit">Edit</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="card">
-        <strong class="card-title">Execute test task</strong>
-        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
-        <div class="state">
-          <span class="state-priority">High</span>
-          <select class="state-setting">
-            <option value="Done">Done</option>
-            <option value="Edit">Edit</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>
-      </div> -->
     </section>
   </main>
 
@@ -130,5 +65,25 @@
       </a>
     </div>
   </footer>
+
+  <section class="modal">
+    <form class="modal-form" action="#">
+      <span>Title:</span>
+      <input class="form-title" type="text" placeholder="Title">
+      <span>Description:</span>
+      <textarea class="form-descr" placeholder="Description"></textarea>
+      <span>Priority:</span>
+      <select class="form-priority">
+        <option value="High">High</option>
+        <option value="Normal">Normal</option>
+        <option value="Low">Low</option>
+      </select>
+      <div class="button-wrap">
+        <button id="cancel" type="button">Cancel</button>
+        <button id="save" type="button">Save</button>
+      </div>
+    </form>
+  </section>
+  <script src="./js/main.js"></script>
 </body>
 </html>
