@@ -1,89 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TODO list</title>
-  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>TODO list</title>
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <header>
-    <span>My TODO list</span>
-  </header>
+	<header>
+		<span>My TODO list</span>
+	</header>
 
-  <main>
-    <section class="control">
-      <form class="filter-form">
-        <input type="search" placeholder="Search by title">
-  
-        <select name="status">
-          <option value="Open">Open</option>
-          <option value="Done">Done</option>
-        </select>
-  
-        <select name="priority">
-          <option value="High">High</option>
-          <option value="Normal">Normal</option>
-          <option value="Low">Low</option>
-        </select>
-      </form>
-      
-      <button class="control-btn" type="button">Create</button>
-    </section>
+	<main>
+		<section class="control">
+			<form class="filter-form">
+				<input type="search" placeholder="Search by title">
+	
+				<select name="status">
+					<option value="Open">Open</option>
+					<option value="Done">Done</option>
+				</select>
+	
+				<select name="priority">
+					<option value="High">High</option>
+					<option value="Normal">Normal</option>
+					<option value="Low">Low</option>
+				</select>
+			</form>
+			
+			<button class="control-btn" type="button" onclick="createCard()">Create</button>
+		</section>
 
-    <section class="list">
-      <div class="card">
-        <strong class="card-title">Execute test task</strong>
-        <span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam nesciunt consequatur?</span>
-        <div class="state">
-          <span class="state-priority">High</span>
-          <select class="state-setting">
-            <option value="Done">Done</option>
-            <option value="Edit">Edit</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>
-      </div>
-    </section>
-  </main>
+		<section class="list">
+			<div class="card" onclick="cardSetting(event)">
+				<strong class="card-title">Execute test task</strong>
+				<span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi
+					perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam
+					nesciunt consequatur?</span>
+				<div class="state">
+					<span class="state-priority High">High</span>
+					<nav>
+						<ul class="setting">
+							<li class="setting-list">
+								<a href="#" class="setting-btn">...</a>
+								<ul class="setting-drop">
+									<li><a href="#" class="done">Done</a></li>
+									<li><a href="#" class="edit">Edit</a></li>
+									<li><a href="#" class="delete">Delete</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 
-  <footer>
-    <div class="contacts">
-      <span>Contacts:</span>
-      
-      <a href="https://github.com/Andrii-Kitsun" target="blank">
-        <img src="./img/GitHub.png" alt="GitHub">
-        Andrii Kitsun
-      </a>
+			<div class="card" onclick="cardSetting(event)">
+				<strong class="card-title">Execute test task</strong>
+				<span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi
+					perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam
+					nesciunt consequatur?</span>
+				<div class="state">
+					<span class="state-priority Normal">Normal</span>
+					<nav>
+						<ul class="setting">
+							<li class="setting-list">
+								<a href="#" class="setting-btn">...</a>
+								<ul class="setting-drop">
+									<li><a href="#" class="done">Done</a></li>
+									<li><a href="#" class="edit">Edit</a></li>
+									<li><a href="#" class="delete">Delete</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 
-      <a href="https://telega.one/Kitsun_A" target="blank">
-        <img src="./img/Telegram.png" alt="Telegram">
-        @Kitsun_A
-      </a>
-    </div>
-  </footer>
+			<div class="card" onclick="cardSetting(event)"> 
+				<strong class="card-title">Execute test task</strong>
+				<span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi
+					perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam
+					nesciunt consequatur?</span>
+				<div class="state">
+					<span class="state-priority Low">Low</span>
+					<nav>
+						<ul class="setting">
+							<li class="setting-list">
+								<a href="#" class="setting-btn">...</a>
+								<ul class="setting-drop">
+									<li><a href="#" class="done">Done</a></li>
+									<li><a href="#" class="edit">Edit</a></li>
+									<li><a href="#" class="delete">Delete</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</section>
+	</main>
 
-  <section class="modal">
-    <form class="modal-form" action="#">
-      <span>Title:</span>
-      <input class="form-title" type="text" placeholder="Title">
-      <span>Description:</span>
-      <textarea class="form-descr" placeholder="Description"></textarea>
-      <span>Priority:</span>
-      <select class="form-priority">
-        <option value="High">High</option>
-        <option value="Normal">Normal</option>
-        <option value="Low">Low</option>
-      </select>
-      <div class="button-wrap">
-        <button id="cancel" type="button">Cancel</button>
-        <button id="save" type="button">Save</button>
-      </div>
-    </form>
-  </section>
-  <script src="./js/main.js"></script>
+	<footer>
+		<div class="contacts">
+			<span>Contacts:</span>
+			
+			<a href="https://github.com/Andrii-Kitsun" target="blank">
+				<img src="./img/GitHub.png" alt="GitHub">
+				Andrii Kitsun
+			</a>
+
+			<a href="https://telega.one/Kitsun_A" target="blank">
+				<img src="./img/Telegram.png" alt="Telegram">
+				@Kitsun_A
+			</a>
+		</div>
+	</footer>
+
+	<section class="modal">
+		<form class="modal-form" name="modal">
+			<span>Title:</span>
+			<input type="text" placeholder="Title" name="title">
+			<span>Description:</span>
+			<textarea placeholder="Description" name="description"></textarea>
+			<span>Priority:</span>
+			<select name="priority">
+				<option value="High">High</option>
+				<option value="Normal">Normal</option>
+				<option value="Low">Low</option>
+			</select>
+			<div class="button-wrap">
+				<button type="button" onclick="closeModal()">Cancel</button>
+				<button type="button" name="save">Save</button>
+			</div>
+		</form>
+	</section>
+	<script src="./js/main.js"></script>
 </body>
 </html>

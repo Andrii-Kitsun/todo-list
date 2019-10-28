@@ -3,281 +3,338 @@ $Grey: #202b36;
 $Border: #dde0e3;
 $Border-card: #57616a;
 $Border-modal: #353b40;
+$High-priority: #007bff;
+$Normal-priority: #089400;
+$Low-priority: #6c757d;
 
 @mixin border {
-  border: 1px solid red;
+	border: 1px solid red;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
 header {
-  height: 50px;
-  background-color: $Grey;
-  color: #ffffff;
-  margin-bottom: 20px;
-  display: flex;
-  span {
-    font-size: 24px;
-    align-self: center;
-    padding-left: 15px;
-  }
+	height: 50px;
+	background-color: $Grey;
+	color: #ffffff;
+	margin-bottom: 20px;
+	display: flex;
+	span {
+		font-size: 24px;
+		align-self: center;
+		padding-left: 15px;
+	}
 }
 
 main {
-  width: 1140px;
-  max-width: 90%;
-  margin: auto;
-  .control {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    @media (max-width: 614px) {
-      flex-wrap: wrap;
-    }
-  }
+	width: 1140px;
+	max-width: 90%;
+	margin: auto;
+	.control {
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 50px;
+		@media (max-width: 614px) {
+			flex-wrap: wrap;
+		}
+	}
 }
 
 .filter-form {
-  height: 100%;
-  input {
-    background: url('../img/Searchicon.png') 10px center no-repeat;
-    height: 100%;
-    width: 400px;
-    padding: 0 15px 0 40px;
-    font-size: 20px;
-    outline: none;
-    border: 2px solid $Border;
-    transition: all, 0.3s;
-    margin-right: 20px;
-    @media (max-width: 1023px) {
-      margin-bottom: 15px;
-    }
-    @media (max-width: 614px) {
-      width: 100%;
-    }
-  }
-  select {
-    appearance: none;
-    background: url('../img/Arrow.png') right center no-repeat;
-    height: 100%;
-    width: 150px;
-    padding: 0 15px;
-    font-size: 20px;
-    outline: none;
-    border: 2px solid $Border;
-    transition: all, 0.3s;
-    margin-right: 15px;
-    @media (min-width: 615px) and (max-width: 1023px) {
-      width: 197px;
-      margin: 0;
-    }
-    @media (max-width: 614px) {
-      width: 100%;
-      margin-bottom: 15px;
-    }
-  }
-  input:hover, select:hover {
-    border-color: darken($Border, 10%);
-  }
-  @media (min-width: 614px) and (max-width: 1023px) {
-    width: 100%;
-  }
+	height: 100%;
+	input {
+		background: url('../img/Searchicon.png') 10px center no-repeat;
+		height: 100%;
+		width: 400px;
+		padding: 0 15px 0 40px;
+		font-size: 20px;
+		outline: none;
+		border: 2px solid $Border;
+		transition: all, 300ms;
+		margin-right: 20px;
+		@media (max-width: 1023px) {
+			margin-bottom: 15px;
+		}
+		@media (max-width: 614px) {
+			width: 100%;
+		}
+	}
+	select {
+		appearance: none;
+		background: url('../img/Arrow.png') right center no-repeat;
+		height: 100%;
+		width: 150px;
+		padding: 0 15px;
+		font-size: 20px;
+		outline: none;
+		border: 2px solid $Border;
+		transition: all, 300ms;
+		margin-right: 15px;
+		@media (min-width: 615px) and (max-width: 1023px) {
+			width: 197px;
+			margin: 0;
+		}
+		@media (max-width: 614px) {
+			width: 100%;
+			margin-bottom: 15px;
+		}
+	}
+	input:hover, select:hover {
+		border-color: darken($Border, 10%);
+	}
+	@media (min-width: 614px) and (max-width: 1023px) {
+		width: 100%;
+	}
 }
 
 .control-btn {
-  height: 100%;
-  width: 150px;
-  font-size: 18px;
-  border: none;
-  border-radius: 12px;
-  outline: none;
-  background-color: $Border;
-  transition: all, 0.3s;
-  &:hover {
-    cursor: pointer;
-    background-color: darken($Border, 10%);
-  }
-  @media (max-width: 614px) {
-    position: relative;
-    top: 145px;
-    width: 100%;
-  }
+	height: 100%;
+	width: 150px;
+	font-size: 18px;
+	border: none;
+	border-radius: 12px;
+	outline: none;
+	background-color: $Border;
+	transition: all, 300ms;
+	&:hover {
+		cursor: pointer;
+		background-color: darken($Border, 10%);
+	}
+	@media (max-width: 614px) {
+		position: relative;
+		top: 145px;
+		width: 100%;
+	}
 }
 
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  @media (max-width: 1083px) {
-    justify-content: space-around;
-  }
-  @media (max-width: 1023px) {
-    margin-top: 115px;
-    justify-content: space-around;
-  }
-  @media (max-width: 614px) {
-    margin-top: 220px;
-  }
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	@media (max-width: 1083px) {
+		justify-content: space-around;
+	}
+	@media (max-width: 1023px) {
+		margin-top: 115px;
+		justify-content: space-around;
+	}
+	@media (max-width: 614px) {
+		margin-top: 220px;
+	}
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 325px;
-  height: 300px;
-  border: 2px solid $Border-card;
-  font-size: 18px;
-  margin-bottom: 40px;
-  &-title {
-    display: block;
-    overflow: auto;
-    padding: 10px 15px;
-    border-bottom: 1px solid $Border-card;
-  }
-  &-text {
-    overflow: auto;
-    padding: 5px 15px;
-  }
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 325px;
+	height: 300px;
+	border: 2px solid $Border-card;
+	font-size: 18px;
+	margin-bottom: 40px;
+	&-title {
+		display: block;
+		overflow: auto;
+		padding: 10px 15px;
+		border-bottom: 1px solid $Border-card;
+	}
+	&-text {
+		overflow: auto;
+		padding: 5px 15px;
+	}
 }
 
 .state {
-  display: flex;
-  padding: 8px 15px;
-  border-top: 1px solid $Border-card;
-  justify-content: space-between;
-  &-priority {
-    padding: 5px;
-    border: 1px dashed $Border-card;
-    border-radius: 10px;
-  }
-  &-setting {
-    width: 85px;
-    font-size: 18px;
-    outline: none;
-    border: 2px solid $Border;
-    border-radius: 10px;
-    transition: all, 0.3s;
-  }
-  &-setting:hover {
-    border-color: darken($Border, 10%);
-  }
+	display: flex;
+	padding: 8px 15px;
+	border-top: 1px solid $Border-card;
+	justify-content: space-between;
+	align-items: center;
+	&-priority {
+		width: 85px;
+		padding: 5px;
+		border: 2px dashed $Grey;
+		border-radius: 10px;
+		text-align: center;
+		color: #fff;
+	}
+	.High {
+		background-color: $High-priority;
+	}
+	.Normal {
+		background-color: $Normal-priority;
+	}
+	.Low {
+		background-color: $Low-priority;
+	}
+	nav {
+		height: 100%;
+	}
+}
+.setting {
+	width: 85px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 2px solid $Border;
+	transition: all, 300ms;
+	list-style: none;
+	text-align: center;
+	&-list {
+		position: relative;
+	}
+	&-btn {
+		display: block;
+		height: 32px;
+		transition: all 300ms;
+		font-weight: bold;
+		&:focus + ul {
+			opacity: 1;
+		}
+	}
+	a {
+		color: #000000;
+		text-decoration: none;
+	}
+	a:hover {
+		background-color: $Grey;
+		color: #fff;
+	}
+	&-drop {
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		border: 1px solid $Border;
+		background-color: #ffffff;
+		opacity: 0;
+		list-style: none;
+		text-align: left;
+		width: 100%;
+		a {
+			padding: 5px 10px;
+			display: block;
+		}
+	}
 }
 
 footer {
-  display: flex;
-  height: 60px;
-  align-items: center;
-  background-color: $Grey;
-  padding-left: 15px;
-  margin-top: 10px;
-  @media (max-width: 722px) {
-    justify-content: center;
-    padding-left: 0;
-  }
+	display: flex;
+	height: 60px;
+	align-items: center;
+	background-color: $Grey;
+	padding-left: 15px;
+	margin-top: 10px;
+	@media (max-width: 722px) {
+		justify-content: center;
+		padding-left: 0;
+	}
 }
 
 .contacts {
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  img {
-    margin: 0 5px;
-  }
-  a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 15px;
-    margin-left: 15px;
-  }
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	img {
+		margin: 0 5px;
+	}
+	a {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		color: #ffffff;
+		font-size: 15px;
+		margin-left: 15px;
+	}
 }
 
 .modal {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 150ms ease-in-out;
-  background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 150ms ease-in-out;
+	background: rgba(0, 0, 0, 0.5);
+	&-opened {
+		opacity: 1;
+		pointer-events: all;
+	}
 }
 .modal-form {
-  width: 400px;
-  height: 450px;
-  padding: 30px;
-  border: 2px solid $Border-modal;
-  font-size: 22px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px 5px $Border;
-  input, textarea {
-    display: block;
-    width: 100%;
-    padding: 5px;
-    margin: 5px 0 15px;
-    border: 2px solid $Border;
-    outline: none;
-    font-size: 17px;
-  }
-  textarea {
-    resize: none;
-    height: 136px;
-    font-family: 'Roboto', sans-serif;
-  }
-  select {
-    display: block;
-    width: 100%;
-    height: 35px;
-    padding: 0 15px;
-    margin: 5px 0 15px;
-    border: 2px solid $Border;
-    appearance: none;
-    outline: none;
-    font-size: 20px;
-    background: url('../img/Arrow.png') right center no-repeat;
-    transition: all, 0.3s;
-  }
-  .button-wrap {
-    display: flex;
-    margin-top: 20px;
-    justify-content: space-between;
-    @media (max-width: 614px) {
+	width: 400px;
+	height: 450px;
+	padding: 30px;
+	border: 2px solid $Border-modal;
+	font-size: 22px;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px 5px $Border;
+	input, textarea {
+		display: block;
+		width: 100%;
+		padding: 5px;
+		margin: 5px 0 15px;
+		border: 2px solid $Border;
+		outline: none;
+		font-size: 17px;
+	}
+	textarea {
+		resize: none;
+		height: 136px;
+		font-family: 'Roboto', sans-serif;
+	}
+	select {
+		display: block;
+		width: 100%;
+		height: 35px;
+		padding: 0 15px;
+		margin: 5px 0 15px;
+		border: 2px solid $Border;
+		appearance: none;
+		outline: none;
+		font-size: 20px;
+		background: url('../img/Arrow.png') right center no-repeat;
+		transition: all, 0.3s;
+	}
+	.button-wrap {
+		display: flex;
+		margin-top: 20px;
+		justify-content: space-between;
+		@media (max-width: 614px) {
 
-    }
-  }
-  button {
-    height: 35px;
-    width: 40%;
-    font-size: 18px;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    background-color: $Border;
-    transition: all, 0.3s;
-    &:hover {
-      cursor: pointer;
-      background-color: darken($Border, 10%);
-    }
-  }
-  input:hover, textarea:hover, select:hover {
-    border-color: darken($Border, 10%);
-  }
+		}
+	}
+	button {
+		height: 35px;
+		width: 40%;
+		font-size: 18px;
+		border: none;
+		border-radius: 12px;
+		outline: none;
+		background-color: $Border;
+		transition: all, 300ms;
+		&:hover {
+			cursor: pointer;
+			background-color: darken($Border, 10%);
+		}
+	}
+	input:hover, textarea:hover, select:hover {
+		border-color: darken($Border, 10%);
+	}
 }
