@@ -14,13 +14,6 @@ const closeModal = () => {
 	modal.title.style.border = '2px solid #dde0e3';
 };
 
-// If the user clicks outside the block
-modalWindow.addEventListener('click', (e) => {
-	if (e.target.classList.contains('modal')) {
-		closeModal();
-	}
-});
-
 const clearInputFields = (title, description) => {
 	title.value = '';
 	description.value = '';
@@ -54,6 +47,45 @@ const editCard = (card) => {
 			closeModal();
 		}
 	};
+};
+
+// Searches given substring in card title
+const filterCardByName = () => {
+	const filter = document.forms.filter;
+	const cards = document.querySelectorAll('.card');
+
+	cards.forEach(card => {
+		const title = card.querySelector('.card-title').textContent;
+		if (!filter.search.value) {
+			card.style.display = 'flex';
+			return;
+		}
+
+		let reg = new RegExp(filter.search.value, 'i');
+		if (title.search(reg) === -1) {
+			card.style.display = 'none';
+		}
+	});
+};
+
+// Compares input priority level with card priority value
+const filterByPriority = () => {
+	const filter = document.forms.filter;
+	const cards = document.querySelectorAll('.card');
+	cards.forEach(card => card.style.display = 'flex');	// Show all items
+
+	cards.forEach(card => {
+		const cardPriority = card.querySelector('.state-priority').textContent;
+		if (filter.priority.value === 'All') {
+			card.style.display = 'flex';
+			return;
+		}
+
+		if (cardPriority !== filter.priority.value) {
+			card.style.display = 'none';
+		}
+	});
+
 };
 
 // Check title input field

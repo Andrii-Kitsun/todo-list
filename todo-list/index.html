@@ -16,19 +16,25 @@
 
 	<main>
 		<section class="control">
-			<form class="filter-form">
-				<input type="search" placeholder="Search by title">
+			<form class="filter-form" name="filter" >
+				<div class="search-wrap">
+					<input type="text" placeholder="Search by title" name="search" autocomplete="off" oninput="filterCardByName()">
+					<button type="submit"></button>
+				</div>
 	
-				<select name="status">
-					<option value="Open">Open</option>
-					<option value="Done">Done</option>
-				</select>
-	
-				<select name="priority">
-					<option value="High">High</option>
-					<option value="Normal">Normal</option>
-					<option value="Low">Low</option>
-				</select>
+				<div class="select-wrap">
+					<select name="status">
+						<option value="Open">Open</option>
+						<option value="Done">Done</option>
+					</select>
+		
+					<select name="priority" onchange="filterByPriority()">
+						<option value="All">All</option>
+						<option value="High">High</option>
+						<option value="Normal">Normal</option>
+						<option value="Low">Low</option>
+					</select>
+				</div>
 			</form>
 			
 			<button class="control-btn" type="button" onclick="createCard()">Create</button>
@@ -37,9 +43,7 @@
 		<section class="list">
 			<div class="card" onclick="cardSetting(event)">
 				<strong class="card-title">Execute test task</strong>
-				<span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi
-					perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam
-					nesciunt consequatur?</span>
+				<span class="card-text">To do: Move items in done status; Add local storage suppurt; Check validation; Check support in another browsers; Check code style</span>
 				<div class="state">
 					<span class="state-priority High">High</span>
 					<nav>
@@ -58,10 +62,8 @@
 			</div>
 
 			<div class="card" onclick="cardSetting(event)">
-				<strong class="card-title">Execute test task</strong>
-				<span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi
-					perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam
-					nesciunt consequatur?</span>
+				<strong class="card-title">Learn Bondarenko</strong>
+				<span class="card-text">Some labs protocol</span>
 				<div class="state">
 					<span class="state-priority Normal">Normal</span>
 					<nav>
@@ -80,10 +82,8 @@
 			</div>
 
 			<div class="card" onclick="cardSetting(event)"> 
-				<strong class="card-title">Execute test task</strong>
-				<span class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis placeat quas, nisi
-					perspiciatis harum labore aliquam nemo. Vero officia eum quaerat nobis, veritatis distinctio rem pariatur nam
-					nesciunt consequatur?</span>
+				<strong class="card-title">English tasks</strong>
+				<span class="card-text">Write hometask on English</span>
 				<div class="state">
 					<span class="state-priority Low">Low</span>
 					<nav>
@@ -100,6 +100,186 @@
 					</nav>
 				</div>
 			</div>
+
+			<div class="card" onclick="cardSetting(event)">
+					<strong class="card-title">So big notes</strong>
+					<span class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio eum est perspiciatis reprehenderit, sint harum, iste temporibus hic maiores esse neque repudiandae repellendus quia non doloremque aspernatur, odit voluptates. Voluptate ipsam odio dolorem deserunt repellat reprehenderit cumque numquam quos incidunt doloribus officiis asperiores nostrum tenetur praesentium ipsa atque, quas exercitationem quia! Explicabo adipisci iste beatae. Fugiat placeat aperiam rerum omnis repudiandae labore ducimus alias qui expedita odio cumque quae quia fugit laborum fuga consequuntur, blanditiis iure, vero ea quas. Hic consequatur repudiandae, maxime sed temporibus possimus eligendi inventore aperiam cumque perspiciatis optio quia soluta fugiat culpa quos explicabo, corporis officia!</span>
+					<div class="state">
+						<span class="state-priority Normal">Normal</span>
+						<nav>
+							<ul class="setting">
+								<li class="setting-list">
+									<a href="#" class="setting-btn">...</a>
+									<ul class="setting-drop">
+										<li><a href="#" class="done">Done</a></li>
+										<li><a href="#" class="edit">Edit</a></li>
+										<li><a href="#" class="delete">Delete</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+	
+				<div class="card" onclick="cardSetting(event)">
+					<strong class="card-title">Learn Webpack!!</strong>
+					<span class="card-text"></span>
+					<div class="state">
+						<span class="state-priority High">High</span>
+						<nav>
+							<ul class="setting">
+								<li class="setting-list">
+									<a href="#" class="setting-btn">...</a>
+									<ul class="setting-drop">
+										<li><a href="#" class="done">Done</a></li>
+										<li><a href="#" class="edit">Edit</a></li>
+										<li><a href="#" class="delete">Delete</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+	
+				<div class="card" onclick="cardSetting(event)"> 
+					<strong class="card-title">Do labs for Beznosyk</strong>
+					<span class="card-text">Labs in large quantities</span>
+					<div class="state">
+						<span class="state-priority Low">Low</span>
+						<nav>
+							<ul class="setting">
+								<li class="setting-list">
+									<a href="#" class="setting-btn">...</a>
+									<ul class="setting-drop">
+										<li><a href="#" class="done">Done</a></li>
+										<li><a href="#" class="edit">Edit</a></li>
+										<li><a href="#" class="delete">Delete</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+				<div class="card" onclick="cardSetting(event)">
+						<strong class="card-title">Something else task</strong>
+						<span class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, accusantium!</span>
+						<div class="state">
+							<span class="state-priority Low">Low</span>
+							<nav>
+								<ul class="setting">
+									<li class="setting-list">
+										<a href="#" class="setting-btn">...</a>
+										<ul class="setting-drop">
+											<li><a href="#" class="done">Done</a></li>
+											<li><a href="#" class="edit">Edit</a></li>
+											<li><a href="#" class="delete">Delete</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+		
+					<div class="card" onclick="cardSetting(event)">
+						<strong class="card-title">To do something</strong>
+						<span class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius vitae adipisci est, nam ipsa dicta itaque necessitatibus, praesentium quos voluptas laudantium libero, rerum expedita perspiciatis saepe distinctio nemo! Debitis quam maxime accusantium, nemo natus et ratione earum at architecto pariatur aut culpa dolore quo ab reprehenderit unde molestias doloremque eaque dolorem dolores. Distinctio dignissimos, iusto tempore mollitia nostrum ratione eveniet explicabo dolor vitae maiores unde modi laborum tenetur velit cupiditate accusantium amet facilis iure delectus. Aspernatur, velit. Fugiat nam iure quam laborum quod explicabo quae voluptatibus.</span>
+						<div class="state">
+							<span class="state-priority High">High</span>
+							<nav>
+								<ul class="setting">
+									<li class="setting-list">
+										<a href="#" class="setting-btn">...</a>
+										<ul class="setting-drop">
+											<li><a href="#" class="done">Done</a></li>
+											<li><a href="#" class="edit">Edit</a></li>
+											<li><a href="#" class="delete">Delete</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+		
+					<div class="card" onclick="cardSetting(event)"> 
+						<strong class="card-title">Drink beer</strong>
+						<span class="card-text"></span>
+						<div class="state">
+							<span class="state-priority Normal">Normal</span>
+							<nav>
+								<ul class="setting">
+									<li class="setting-list">
+										<a href="#" class="setting-btn">...</a>
+										<ul class="setting-drop">
+											<li><a href="#" class="done">Done</a></li>
+											<li><a href="#" class="edit">Edit</a></li>
+											<li><a href="#" class="delete">Delete</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+
+					<div class="card" onclick="cardSetting(event)">
+							<strong class="card-title">Lost first lesson in iniversity</strong>
+							<span class="card-text">Kek</span>
+							<div class="state">
+								<span class="state-priority High">High</span>
+								<nav>
+									<ul class="setting">
+										<li class="setting-list">
+											<a href="#" class="setting-btn">...</a>
+											<ul class="setting-drop">
+												<li><a href="#" class="done">Done</a></li>
+												<li><a href="#" class="edit">Edit</a></li>
+												<li><a href="#" class="delete">Delete</a></li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+			
+						<div class="card" onclick="cardSetting(event)">
+							<strong class="card-title">Don't remember go bed</strong>
+							<span class="card-text">Oops</span>
+							<div class="state">
+								<span class="state-priority Low">Low</span>
+								<nav>
+									<ul class="setting">
+										<li class="setting-list">
+											<a href="#" class="setting-btn">...</a>
+											<ul class="setting-drop">
+												<li><a href="#" class="done">Done</a></li>
+												<li><a href="#" class="edit">Edit</a></li>
+												<li><a href="#" class="delete">Delete</a></li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+			
+						<div class="card" onclick="cardSetting(event)"> 
+							<strong class="card-title">Some important todo item</strong>
+							<span class="card-text">Eat shawarma tomorrow</span>
+							<div class="state">
+								<span class="state-priority Normal">Normal</span>
+								<nav>
+									<ul class="setting">
+										<li class="setting-list">
+											<a href="#" class="setting-btn">...</a>
+											<ul class="setting-drop">
+												<li><a href="#" class="done">Done</a></li>
+												<li><a href="#" class="edit">Edit</a></li>
+												<li><a href="#" class="delete">Delete</a></li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
 		</section>
 	</main>
 
