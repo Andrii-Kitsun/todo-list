@@ -231,6 +231,7 @@ main .control {
           justify-content: space-between;
   width: 325px;
   height: 300px;
+  position: relative;
   border: 2px solid #57616a;
   font-size: 18px;
   margin-bottom: 40px;
@@ -250,6 +251,22 @@ main .control {
       -ms-flex-positive: 1;
           flex-grow: 1;
   overflow: auto;
+}
+
+.card-checkbox {
+  display: none;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 0;
+}
+
+.Done {
+  background-color: #999999;
+}
+
+.Done input {
+  display: block;
 }
 
 .state {
@@ -287,10 +304,6 @@ main .control {
   background-color: #6c757d;
 }
 
-.state nav {
-  height: 100%;
-}
-
 .setting {
   width: 85px;
   height: 100%;
@@ -305,6 +318,7 @@ main .control {
 
 .setting-list {
   position: relative;
+  z-index: 1;
 }
 
 .setting-btn {
@@ -417,6 +431,7 @@ footer {
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
 .modal-opened {
@@ -433,6 +448,13 @@ footer {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 10px 5px #dde0e3;
           box-shadow: 0 0 10px 5px #dde0e3;
+}
+
+.modal-form span {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .modal-form input, .modal-form textarea {

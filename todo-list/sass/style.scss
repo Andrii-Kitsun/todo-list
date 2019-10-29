@@ -168,6 +168,7 @@ main {
 	justify-content: space-between;
 	width: 325px;
 	height: 300px;
+	position: relative;
 	border: 2px solid $Border-card;
 	font-size: 18px;
 	margin-bottom: 40px;
@@ -181,6 +182,25 @@ main {
 		padding: 5px 15px;
 		flex-grow: 1;
 		overflow: auto;
+	}
+	&-checkbox {
+		// opacity: 0;
+		display: none;
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		right: 0;
+		// transition: all 100ms;
+	}
+	// &:hover > &-checkbox {
+	// 	opacity: 1;
+	// 	cursor: pointer;
+	// }
+}
+.Done {
+	background-color: darken(#ffffff, 40%);
+	input {
+		display: block;
 	}
 }
 
@@ -207,9 +227,6 @@ main {
 	.Low {
 		background-color: $Low-priority;
 	}
-	nav {
-		height: 100%;
-	}
 }
 .setting {
 	width: 85px;
@@ -222,6 +239,7 @@ main {
 	text-align: center;
 	&-list {
 		position: relative;
+		z-index: 1;
 	}
 	&-btn {
 		display: block;
@@ -303,6 +321,7 @@ footer {
 	pointer-events: none;
 	transition: all 150ms ease-in-out;
 	background: rgba(0, 0, 0, 0.5);
+	z-index: 2;
 	&-opened {
 		opacity: 1;
 		pointer-events: all;
@@ -316,6 +335,9 @@ footer {
 	font-size: 22px;
 	background-color: #ffffff;
 	box-shadow: 0 0 10px 5px $Border;
+	span {
+		user-select: none;
+	}
 	input, textarea {
 		display: block;
 		width: 100%;

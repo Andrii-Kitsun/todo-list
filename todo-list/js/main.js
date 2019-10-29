@@ -25,7 +25,7 @@ const createCard = () => {
 	modal.save.onclick = () => {
 		if (checkTitle(modal.title)) {
 			let cardList = document.querySelector('.list');
-			cardList.innerHTML += innerCard(modal.title, modal.description, modal.priority);
+			cardList.innerHTML = innerCard(modal.title, modal.description, modal.priority) + cardList.innerHTML;
 			closeModal();
 		}
 	};
@@ -44,49 +44,46 @@ const editCard = (card) => {
 	modal.save.onclick = () => {
 		if (checkTitle(modal.title)) {
 			card.innerHTML = innerEditCard(modal.title, modal.description, modal.priority);
+			card.className = 'card Open';
 			closeModal();
 		}
 	};
 };
 
-// Searches given substring in card title
-const filterCardByName = () => {
-	const filter = document.forms.filter;
-	const cards = document.querySelectorAll('.card');
-
-	cards.forEach(card => {
-		const title = card.querySelector('.card-title').textContent;
-		if (!filter.search.value) {
-			card.style.display = 'flex';
-			return;
-		}
-
-		let reg = new RegExp(filter.search.value, 'i');
-		if (title.search(reg) === -1) {
-			card.style.display = 'none';
-		}
-	});
+// Move card to done status
+const doneCard = (card) => {
+	card.className = 'card Done';
 };
 
-// Compares input priority level with card priority value
-const filterByPriority = () => {
-	const filter = document.forms.filter;
-	const cards = document.querySelectorAll('.card');
-	cards.forEach(card => card.style.display = 'flex');	// Show all items
+// Filter by search data, status item and prioruty level
+const cardFilter = () => {
+	const searchText = document.forms.filter.search.value;
+	const statusText = document.forms.filter.status.value;
+	const priorityText = document.forms.filter.priority.value;
+	const reg = new RegExp(searchText, 'i');
+	let cards = document.querySelectorAll('.card');
 
 	cards.forEach(card => {
+		const cardTitle = card.querySelector('.card-title').textContent;
+		const cardStatus = card.className.slice(5);
 		const cardPriority = card.querySelector('.state-priority').textContent;
-		if (filter.priority.value === 'All') {
-			card.style.display = 'flex';
-			return;
-		}
 
-		if (cardPriority !== filter.priority.value) {
-			card.style.display = 'none';
+		card.style.display = 'none';
+
+		if (filterByName(cardTitle, reg) &&
+			filterByStatus(cardStatus, statusText) &&
+			filterByPriority(cardPriority, priorityText)) {
+			card.style.display = 'flex';
 		}
 	});
-
 };
+
+const filterByName = (title, filterText) => (title.search(filterText) !== -1);
+
+const filterByStatus = (status, filterStatus) => (status === filterStatus || filterStatus == 'All');
+
+const filterByPriority = (priority, filterPriority) => (priority === filterPriority || filterPriority === "All");
+
 
 // Check title input field
 const checkTitle = (title) => {
@@ -101,12 +98,13 @@ const checkTitle = (title) => {
 // Adds new todo item on a page
 const innerCard = (title, description, priority) => {
 	return `
-		<div class="card" onclick="cardSetting(event)">
-			<strong class="card-title">${title.value}</strong>
-			<span class="card-text">${description.value}</span>
-			<div class="state">
-				<span class="state-priority ${priority.value}">${priority.value}</span>
-				<nav>
+	<div class="card Open" onclick="cardSetting(event)">
+		<input type="checkbox" class="card-checkbox" checked>
+		<strong class="card-title">${title.value}</strong>
+		<span class="card-text">${description.value}</span>
+		<div class="state">
+			<span class="state-priority ${priority.value}">${priority.value}</span>
+			<nav>
 				<ul class="setting">
 					<li class="setting-list">
 						<a href="#" class="setting-btn">...</a>
@@ -118,19 +116,20 @@ const innerCard = (title, description, priority) => {
 					</li>
 				</ul>
 			</nav>
-			</div>
 		</div>
+	</div>
 	`;
 };
 
 // Adds changes an existing todo item on a page
 const innerEditCard = (title, description, priority) => {
 	return `
-		<strong class="card-title">${title.value}</strong>
-		<span class="card-text">${description.value}</span>
-		<div class="state">
-			<span class="state-priority ${priority.value}">${priority.value}</span>
-			<nav>
+	<input type="checkbox" class="card-checkbox" checked>
+	<strong class="card-title">${title.value}</strong>
+	<span class="card-text">${description.value}</span>
+	<div class="state">
+		<span class="state-priority ${priority.value}">${priority.value}</span>
+		<nav>
 			<ul class="setting">
 				<li class="setting-list">
 					<a href="#" class="setting-btn">...</a>
@@ -142,7 +141,7 @@ const innerEditCard = (title, description, priority) => {
 				</li>
 			</ul>
 		</nav>
-		</div>
+	</div>
 	`;
 };
 
@@ -155,10 +154,11 @@ const addTodoItem = (title, description, priority) => {
 };
 
 const cardSetting = (e) => {
+	e.preventDefault();
 	const choice = e.target.className;
 	const card = e.currentTarget;
-	if (choice === 'done') {
-		
+	if (choice === 'done' || choice === 'card-checkbox') {
+		doneCard(card);
 	}
 	if (choice === 'edit') {
 		editCard(card);
