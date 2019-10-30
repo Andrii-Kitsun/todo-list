@@ -1,22 +1,32 @@
 const modal = document.forms.modal;
-const modalWindow = document.querySelector('.modal');
-let todoList = [];
+
+// Update todo list from local storage
+document.addEventListener('DOMContentLoaded', () => {
+	if (localStorage.getItem('todoList')) {
+		const cardList = document.querySelector('.list');
+		const storageList = localStorage.getItem('todoList');
+		cardList.innerHTML = storageList;
+	}
+});
+
+// Add all user data in local storage
+const updateLocalStorage = () => {
+	const cardList = document.querySelector('.list');
+	localStorage.setItem('todoList', cardList.innerHTML);
+};
 
 // Open modal window
 const openModal = () => {
+	const modalWindow = document.querySelector('.modal');
 	modalWindow.className = 'modal modal-opened';
 };
 
 // Close modal window with clear input fields
 const closeModal = () => {
+	const modalWindow = document.querySelector('.modal');
 	modalWindow.className = 'modal';
 	clearInputFields(modal.title, modal.description);
 	modal.title.style.border = '2px solid #dde0e3';
-};
-
-const clearInputFields = (title, description) => {
-	title.value = '';
-	description.value = '';
 };
 
 // Creates new todo item and puts it to DOM
@@ -25,7 +35,9 @@ const createCard = () => {
 	modal.save.onclick = () => {
 		if (checkTitle(modal.title)) {
 			let cardList = document.querySelector('.list');
-			cardList.innerHTML = innerCard(modal.title, modal.description, modal.priority) + cardList.innerHTML;
+			const newCard = innerCard(modal.title, modal.description, modal.priority);
+			cardList.innerHTML = newCard + cardList.innerHTML;
+			updateLocalStorage();
 			closeModal();
 		}
 	};
@@ -45,14 +57,26 @@ const editCard = (card) => {
 		if (checkTitle(modal.title)) {
 			card.innerHTML = innerEditCard(modal.title, modal.description, modal.priority);
 			card.className = 'card Open';
+			updateLocalStorage();
 			closeModal();
 		}
 	};
 };
 
+const deleteCard = (card) => {
+	card.remove();
+	updateLocalStorage();
+};
+
+const clearInputFields = (title, description) => {
+	title.value = '';
+	description.value = '';
+};
+
 // Move card to done status
 const doneCard = (card) => {
 	card.className = 'card Done';
+	updateLocalStorage();
 };
 
 // Filter by search data, status item and prioruty level
@@ -145,14 +169,6 @@ const innerEditCard = (title, description, priority) => {
 	`;
 };
 
-const addTodoItem = (title, description, priority) => {
-	return {
-		title: title.value,
-		description: description.value,
-		priority: priority.value
-	};
-};
-
 const cardSetting = (e) => {
 	e.preventDefault();
 	const choice = e.target.className;
@@ -164,6 +180,6 @@ const cardSetting = (e) => {
 		editCard(card);
 	}
 	if (choice === 'delete') {
-		card.remove();
+		deleteCard(card);
 	}
 };
