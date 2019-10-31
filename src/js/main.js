@@ -1,4 +1,4 @@
-const modal = document.forms.modal;
+// const modal = document.forms.modal;
 
 // Update todo list from local storage
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,14 +24,18 @@ const openModal = () => {
 // Close modal window with clear input fields
 const closeModal = () => {
 	const modalWindow = document.querySelector('.modal');
+	const modal = document.forms.modal;
+
 	modalWindow.className = 'modal';
 	clearInputFields(modal.title, modal.description);
-	modal.title.style.border = '2px solid #dde0e3';
+	
 };
 
 // Creates new todo item and puts it to DOM
 const createCard = () => {
+	const modal = document.forms.modal;
 	openModal();
+	
 	modal.save.onclick = () => {
 		if (checkTitle(modal.title)) {
 			let cardList = document.querySelector('.list');
@@ -48,6 +52,8 @@ const editCard = (card) => {
 	const cardTitle = card.querySelector('.card-title').textContent;
 	const cardText = card.querySelector('.card-text').textContent;
 	const cardPriority = card.querySelector('.state-priority').textContent;
+	const modal = document.forms.modal;
+
 	modal.title.value = cardTitle;
 	modal.description.value = cardText;
 	modal.priority.value = cardPriority;
@@ -69,8 +75,11 @@ const deleteCard = (card) => {
 };
 
 const clearInputFields = (title, description) => {
+	const modal = document.forms.modal;
+
 	title.value = '';
 	description.value = '';
+	modal.title.style.border = '2px solid #dde0e3';
 };
 
 // Move card to done status
