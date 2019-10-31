@@ -18,7 +18,7 @@
 		<section class="control">
 			<form class="filter-form" name="filter" >
 				<div class="search-wrap">
-					<input type="text" placeholder="Search by title" name="search" autocomplete="off" oninput="cardFilter()">
+					<input type="text" placeholder="Search by title" name="search" autocomplete="off" oninput="cardFilter()" autofocus>
 					<button type="button"></button>
 				</div>
 	
@@ -68,7 +68,7 @@
 			<textarea placeholder="Description" name="description"></textarea>
 			<span>Priority:</span>
 			<select name="priority">
-				<option value="High">High</option>
+				<option value="High" selected>High</option>
 				<option value="Normal">Normal</option>
 				<option value="Low">Low</option>
 			</select>
@@ -79,7 +79,6 @@
 		</form>
 	</section>
 	
-	<!-- <script src="./src/js/main.js"></script> -->
 	<script src="./dist/js/build.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-// const modal = document.forms.modal;
-
 // Update todo list from local storage
 document.addEventListener('DOMContentLoaded', () => {
 	if (localStorage.getItem('todoList')) {
@@ -18,7 +16,10 @@ const updateLocalStorage = () => {
 // Open modal window
 const openModal = () => {
 	const modalWindow = document.querySelector('.modal');
+	const modal = document.forms.modal;
+
 	modalWindow.className = 'modal modal-opened';
+	modal.title.focus();
 };
 
 // Close modal window with clear input fields
@@ -28,7 +29,6 @@ window.closeModal = () => {
 
 	modalWindow.className = 'modal';
 	clearInputFields(modal.title, modal.description);
-	
 };
 
 // Creates new todo item and puts it to DOM
@@ -41,6 +41,7 @@ window.createCard = () => {
 			let cardList = document.querySelector('.list');
 			const newCard = innerCard(modal.title, modal.description, modal.priority);
 			cardList.innerHTML = newCard + cardList.innerHTML;
+			
 			updateLocalStorage();
 			window.closeModal();
 		}
@@ -182,7 +183,7 @@ window.cardSetting = (e) => {
 	e.preventDefault();
 	const choice = e.target.className;
 	const card = e.currentTarget;
-	if (choice === 'done' || choice === 'card-checkbox') {
+	if (choice === 'done') {
 		doneCard(card);
 	}
 	if (choice === 'edit') {
