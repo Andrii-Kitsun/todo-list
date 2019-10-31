@@ -22,7 +22,7 @@ const openModal = () => {
 };
 
 // Close modal window with clear input fields
-const closeModal = () => {
+window.closeModal = () => {
 	const modalWindow = document.querySelector('.modal');
 	const modal = document.forms.modal;
 
@@ -32,7 +32,7 @@ const closeModal = () => {
 };
 
 // Creates new todo item and puts it to DOM
-const createCard = () => {
+window.createCard = () => {
 	const modal = document.forms.modal;
 	openModal();
 	
@@ -42,7 +42,7 @@ const createCard = () => {
 			const newCard = innerCard(modal.title, modal.description, modal.priority);
 			cardList.innerHTML = newCard + cardList.innerHTML;
 			updateLocalStorage();
-			closeModal();
+			window.closeModal();
 		}
 	};
 };
@@ -64,7 +64,7 @@ const editCard = (card) => {
 			card.innerHTML = innerEditCard(modal.title, modal.description, modal.priority);
 			card.className = 'card Open';
 			updateLocalStorage();
-			closeModal();
+			window.closeModal();
 		}
 	};
 };
@@ -89,7 +89,7 @@ const doneCard = (card) => {
 };
 
 // Filter by search data, status item and prioruty level
-const cardFilter = () => {
+window.cardFilter = () => {
 	const searchText = document.forms.filter.search.value;
 	const statusText = document.forms.filter.status.value;
 	const priorityText = document.forms.filter.priority.value;
@@ -178,7 +178,7 @@ const innerEditCard = (title, description, priority) => {
 	`;
 };
 
-const cardSetting = (e) => {
+window.cardSetting = (e) => {
 	e.preventDefault();
 	const choice = e.target.className;
 	const card = e.currentTarget;
